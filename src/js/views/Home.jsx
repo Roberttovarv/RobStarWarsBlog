@@ -44,8 +44,8 @@ useEffect(() => {
 
 	return (
 	<div>
-		<div className="row">
-		<h1>Characters</h1>
+		<div className="row m-auto justify-content-center gap-3">
+		<h1 className="text-center">Characters</h1>
 		{characters.map((item, index) => (
 			<div className="card" style={{width: "18rem"}} key={index}>
 			<img src="..." className="card-img-top" alt="..." />
@@ -54,13 +54,13 @@ useEffect(() => {
 				<span className="card-text">Gender: {item.gender}</span><br />
 				<span className="card-text">Hair color: {item.hair_color}</span><br />
 				<span className="card-text">Eye color: {item.eye_color}</span><br />
-				<Link to={`/${item.id}`} className="btn btn-primary">Más Info</Link>
+				<Link to={`/${item.id}`} className="btn btn-primary mt-2">Más Info</Link>
 			</div>
 		</div>
 		))}
 		</div>
-		<div className="row">
-		<h1>Planets</h1>
+		<div className="row m-auto justify-content-center gap-3">
+		<h1 className="text-center mt-4">Planets</h1>
 		{planets.map((item, index) => (
 			<div className="card" style={{width: "18rem"}} key={index}>
 			<img src="..." className="card-img-top" alt="..." />
@@ -69,7 +69,7 @@ useEffect(() => {
 				<span className="card-text">Gender: {item.population}</span><br />
 				<span className="card-text">Hair color: {item.terrain}</span><br />
 				<span className="card-text">Eye color: {item.climate}</span><br />
-				<Link to={`/${item.id}`} className="btn btn-primary">Más Info</Link>
+				<Link to={`/${item.id}`} className="btn btn-primary mt-2">Más Info</Link>
 			</div>
 		</div>
 		))}
