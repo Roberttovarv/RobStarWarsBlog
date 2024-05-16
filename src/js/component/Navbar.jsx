@@ -7,15 +7,19 @@ import "../../styles/home.css";
 export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-dark bg-dark mb-3 px-3">
+			<div className="d-flex m-auto justify-content-around">
+				<div className="justify-content-start">			
 			<Link to="/">
 				<img src={logo} 
-				style={{width: "10%", height: "auto", maxWidth: "1000px" }} />
+				id="logoHome" />
 				
 			</Link>
-			<div className="ml-auto">
+			</div>
+			<div className="justify-content-end">
 				<Link to="/demo">
 					<button className="btn btn-warning">Favoritos</button>
 				</Link>
+			</div>
 			</div>
 		</nav>
 	);

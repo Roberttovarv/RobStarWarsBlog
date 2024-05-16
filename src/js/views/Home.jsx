@@ -1,79 +1,41 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import { Characters } from "./Characters.jsx";
+import { Planets } from "./Planets.jsx";
 
 export const Home = () => {
-const [characters, setCharacters] = useState([])
-const [planets, setPlanets] = useState([])
-const host = "https://swapi.dev/api";
+    return (
+        <>
+            {/* <Characters />
+        <Planets /> */}
 
-const fetchCharacters = async () => {
-	const uri = `${host}/people/`
-	const options =  { method: "GET" }
+            <div>
+                <div class="card text-center">
+                    <div class="card-header">
+                        {/* {store.item.name} */} Nombre
+                    </div>
+                    <div class="card-body d-flex">
+                        <div>
+                            <img src="" />
+                        </div>
+                        <div>
+                            <ul class="list-group list-group-flush text-start">
+                                <li class="list-group-item">Height:  </li>
+                                <li class="list-group-item">Mass: </li>
+                                <li class="list-group-item">Hair color:</li>
+                                <li class="list-group-item">Skin color:</li>
+                                <li class="list-group-item">Birth year: </li>
+                                <li class="list-group-item">Gender: </li>
+                                <li class="list-group-item">Planet: </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer text-body-secondary">
+                        2 days ago
+                    </div>
+                </div>
+            </div>
 
-	const response = await fetch(uri, options)
-
-	if (!response.ok) {
-		console.log("Error", response.status, response.statusText);
-		return
-	};
-
-	const data = await response.json()
-	setCharacters(data.results)
-};
-
-const fetchSpheres = async () => {
-	const uri = `${host}/planets/`
-	const options =  { method: "GET" }
-
-	const response = await fetch(uri, options)
-
-	if (!response.ok) {
-		console.log("Error", response.status, response.statusText);
-		return
-	};
-
-	const data = await response.json()
-	setPlanets(data.results)
-};
-
-useEffect(() => {
-	fetchCharacters();
-	fetchSpheres();
-}, []);
-
-	return (
-	<div>
-		<div className="row m-auto justify-content-center gap-3">
-		<h1 className="text-center">Characters</h1>
-		{characters.map((item, index) => (
-			<div className="card" style={{width: "18rem"}} key={index}>
-			<img src="..." className="card-img-top" alt="..." />
-			<div className="card-body">
-				<h5 className="card-title">{item.name}</h5>
-				<span className="card-text">Gender: {item.gender}</span><br />
-				<span className="card-text">Hair color: {item.hair_color}</span><br />
-				<span className="card-text">Eye color: {item.eye_color}</span><br />
-				<Link to={`/${item.id}`} className="btn btn-primary mt-2">Más Info</Link>
-			</div>
-		</div>
-		))}
-		</div>
-		<div className="row m-auto justify-content-center gap-3">
-		<h1 className="text-center mt-4">Planets</h1>
-		{planets.map((item, index) => (
-			<div className="card" style={{width: "18rem"}} key={index}>
-			<img src="..." className="card-img-top" alt="..." />
-			<div className="card-body">
-				<h5 className="card-title">{item.name}</h5>
-				<span className="card-text">Gender: {item.population}</span><br />
-				<span className="card-text">Hair color: {item.terrain}</span><br />
-				<span className="card-text">Eye color: {item.climate}</span><br />
-				<Link to={`/${item.id}`} className="btn btn-primary mt-2">Más Info</Link>
-			</div>
-		</div>
-		))}
-		</div>
-	</div>
-);
+        </>
+    );
 };
